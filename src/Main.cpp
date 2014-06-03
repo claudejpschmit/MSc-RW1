@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
+#include <cmath>
 #include "StepGenerator.hpp"
 
 using namespace std;
@@ -39,5 +40,9 @@ int main(int argc, char *argv[]) {
     }
     
     randomWalk.close();
+    
+    cout << "end to end distance = " << sqrt(current.x * current.x 
+            + current.y * current.y + current.z * current.z) << endl;  
+
     return 0;
 }
