@@ -4,7 +4,7 @@ import sys
 
 x,y,stdev = np.loadtxt(sys.argv[1], unpack = True)
 plt.plot(x,y)
-#plt.errorbar(x,y, yerr=stdev)
+plt.errorbar(x,y, yerr=stdev)
 
 plt.xlabel(r'RW length')
 plt.ylabel(r'EndToEnd Dist')

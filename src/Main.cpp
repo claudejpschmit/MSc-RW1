@@ -4,6 +4,7 @@
 #include <cmath>
 #include "StepGenerator.hpp"
 #include "helper.hpp"
+#include <vector>
 
 #define ITERATIONS 100
 
@@ -46,6 +47,7 @@ int main(int argc, char *argv[]) {
 
     ofstream endtoend("endtoend.txt");
     int j = 10;
+    vector<double> averageDistances;
     while (j <= NoWalks) {
         double av = 0;
         double avSq = 0;
@@ -66,11 +68,13 @@ int main(int argc, char *argv[]) {
         }
         av = av/ITERATIONS;
         avSq = avSq/ITERATIONS;
+        averageDistances.push_back(av);
 
         /*  Gives average end to end distance + standard deviation on them.
          *
          */
-        endtoend << j << " " << av << " " << sqrt(avSq - av * av)  << endl;
+        endtoend << j << " " << av << " " 
+            << sqrt(avSq - av * av)/sqrt(NoWalks/10)  << endl;
         j += 10;
     }
     endtoend.close();

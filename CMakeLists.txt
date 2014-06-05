@@ -33,7 +33,8 @@ LINK_DIRECTORIES(${ARMADILLO_LIBRARIES})
 #INCLUDE_DIRECTORIES(${ROOT_INCLUDE_DIR})
 #LINK_DIRECTORIES(${ROOT_LIBRARY_DIR})
 
-add_executable(RWmaker src/Main.cpp src/StepGenerator.cpp src/helper.cpp ${HEADER_FILES})
+add_executable(RWmaker src/Main.cpp src/StepGenerator.cpp src/helper.cpp
+    ${HEADER_FILES})
 target_link_libraries(RWmaker -lm ${Boost_LIBRARIES})
 target_link_libraries(RWmaker -lm ${ARMADILLO_LIBRARIES})
 #target_link_libraries(RWmaker -lm ${ROOT_LIBRARIES})
