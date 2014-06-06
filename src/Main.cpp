@@ -25,26 +25,31 @@ int main(int argc, char *argv[]) {
         cout << "number of walks should be positive" << endl;
         return -1;
     }
-
+    
+    //creating a single n-step random walk
     position current, next;
     next.x = 0;
     next.y = 0;
     next.z = 0;
     current = next;
-
+    vector<position> randomWalkStored;
+    randomWalkStored.push_back(current);
     StepGenerator RW;
 
     ofstream randomWalk("randomWalk.txt");
-
+    randomWalk << randomWalkStored[0].x << " " << randomWalkStored[0].y <<  " " << randomWalkStored[0].z << endl;
+ 
     for (int i = 0; i < NoWalks; ++i) {
 
         RW.generateNext(next, current);
-        randomWalk << next.x << " " << next.y << " " << next.z << endl;
+        randomWalkStored.push_back(next);
+        randomWalk << randomWalkStored[i + 1].x << " " << randomWalkStored[i + 1].y <<  " " << randomWalkStored[i + 1].z << endl;
         current = next;
     }
 
     randomWalk.close();
 
+    // creating End to end distance data
     ofstream endtoend("endtoend.txt");
     int j = 10;
     vector<double> averageDistances;
