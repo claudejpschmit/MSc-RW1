@@ -2,7 +2,7 @@
 
 #include <iostream>
 
-#include "helper.hpp"
+#include "position.hpp"
 
 #include <boost/random/mersenne_twister.hpp>
 

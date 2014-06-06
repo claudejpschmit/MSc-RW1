@@ -3,7 +3,7 @@
 #include <sstream>
 #include <cmath>
 #include "StepGenerator.hpp"
-#include "helper.hpp"
+#include "position.hpp"
 #include <vector>
 
 #define ITERATIONS 100
