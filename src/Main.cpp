@@ -27,11 +27,9 @@ int main(int argc, char *argv[]) {
     }
     
     //creating a single n-step random walk
-    position current, next;
-    next.x = 0;
-    next.y = 0;
-    next.z = 0;
-    current = next;
+    cout << "Creating a single n-step random walk ..." << endl;
+    position current(0,0,0);
+    position next(0,0,0);
     vector<position> randomWalkStored;
     randomWalkStored.push_back(current);
     StepGenerator RW;
@@ -49,7 +47,12 @@ int main(int argc, char *argv[]) {
 
     randomWalk.close();
 
+    // adding portein to the random walk
+    cout << "adding protein to the random walk ..." << endl;
+
     // creating End to end distance data
+
+    cout << "Creating end to end distance data ..." << endl;
     ofstream endtoend("endtoend.txt");
     int j = 10;
     vector<double> averageDistances;
@@ -58,9 +61,7 @@ int main(int argc, char *argv[]) {
         double avSq = 0;
 
         for (int k = 0; k < ITERATIONS; ++k){
-            next.x = 0;
-            next.y = 0;
-            next.z = 0;
+            next.set(0,0,0);
             current = next;
 
             for (int i = 0; i < j; ++i) {
